@@ -30,7 +30,7 @@
               "src/styles.scss"
             ],
             "scripts": [
-
+              "src/assets/js/draganddrop.min.js"
             ]
           },
           "configurations": {
@@ -80,7 +80,9 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": [],
+            "scripts": [
+              "src/assets/js/draganddrop.min"
+            ],
             "assets": [
               "src/favicon.ico",
               "src/assets"

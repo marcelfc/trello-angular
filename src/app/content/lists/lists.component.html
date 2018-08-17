@@ -1,5 +1,5 @@
 <div class="lists">
-  <div class="list">
+  <!-- <div class="list">
     <header>TO DO</header>
     <ul>
       <li>Lorem ipsum dolor sit amet</li>
@@ -33,5 +33,19 @@
       <li>Just some text</li>
     </ul>
     <footer>Add a card...</footer>
-  </div>
+  </div> -->
+</div>
+
+<div class="box" appDraggable (dragStart)="onDragStart()" (dragMove)="onDragMove()" (dragEnd)="onDragEnd()"> My Box</div>
+<div class="box" appDraggable (dragStart)="onDragStart()" (dragMove)="onDragMove()" (dragEnd)="onDragEnd()"> My Box</div>
+
+
+<h2>Part 2 - movable directive</h2>
+
+<div class="box" appMovable>
+  Movable 1
+</div>
+
+<div class="box" appMovable [appMovableReset]="false">
+  Movable 2
 </div>

@@ -12,4 +12,16 @@ export class ListsComponent implements OnInit {
   ngOnInit() {
   }
 
+  onDragStart(): void {
+    console.log('start');
+  }
+
+  onDragMove(): void {
+    console.log('move');
+  }
+
+  onDragEnd(): void {
+    console.log('end');
+  }
+
 }
