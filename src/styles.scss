@@ -1,0 +1,36 @@
+/* You can add global styles to this file, and also import other style files */
+//@import "~bootstrap/dist/css/bootstrap.min.css";
+
+// Layout
+@import "variables";
+
+body {
+  margin: 0;
+  font-family: 'Roboto';
+  font-size: 14px;
+  line-height: 1.3em;
+}
+
+.ui {
+  height: 900px;
+
+  display: grid;
+  grid-template-rows: $appbar-height $navbar-height 1fr;
+
+  background-color: $board-bg-color;
+  color: #eee;
+}
+
+.navbar {
+  padding-left: $gap;
+  display: flex;
+  align-items: center;
+  &.app {
+    background-color: $appbar-bg-color;
+    font-size: 1.5rem;
+    height: 50px;
+  }
+  &.board {
+    font-size: 1.1rem;
+  }
+}
