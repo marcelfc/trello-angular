@@ -29,9 +29,7 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": [
-              "src/assets/js/draganddrop.min.js"
-            ]
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -80,9 +78,7 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": [
-              "src/assets/js/draganddrop.min"
-            ],
+            "scripts": [],
             "assets": [
               "src/favicon.ico",
               "src/assets"

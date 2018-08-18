@@ -3,15 +3,14 @@ import { CommonModule } from '@angular/common';
 import { BoardComponent } from './board/board.component';
 import { ListsComponent } from './lists/lists.component';
 import { CardComponent } from './card/card.component';
-import { TestBoardComponent } from './test-board/test-board.component';
-import { DraggableModule } from '../draggable/draggable.module';
+import { NgDragDropModule } from 'ng-drag-drop';
 
 @NgModule({
   imports: [
     CommonModule,
-    DraggableModule
+    NgDragDropModule.forRoot()
   ],
-  declarations: [BoardComponent, ListsComponent, CardComponent, TestBoardComponent],
+  declarations: [BoardComponent, ListsComponent, CardComponent],
   exports: [BoardComponent],
   providers: []
 })

@@ -33,11 +33,13 @@
     border-top-right-radius: $list-border-radius;
   }
 
-  footer {
+  input {
     line-height: $list-footer-height;
     border-bottom-left-radius: $list-border-radius;
     border-bottom-right-radius: $list-border-radius;
     color: #888;
+    margin-top: 5px;
+    margin-bottom: 5px;
   }
 
   ul {
@@ -68,13 +70,3 @@
   }
 }
 
-.box {
-  background: #BADA55;
-  border: 1px solid black;
-  padding: 10px 20px;
-  display: inline-block;
-
-  &.dragging {
-    background: coral;
-  }
-}

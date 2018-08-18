@@ -1,51 +1,27 @@
 <div class="lists">
-  <!-- <div class="list">
+  <div class="list" droppable (onDrop)="onItemDropToDo($event)">
     <header>TO DO</header>
     <ul>
-      <li>Lorem ipsum dolor sit amet</li>
-      <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
-      <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lobortis enim sit amet</li>
-      <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lobortis enim sit amet metus laoreet, ut condimentum</li>
+      <li draggable *ngFor="let item of toDoitems" [dragData]="item" class="list-group-item">{{item.title}}</li>
+      <input #boxToDo (keyup.enter)="onEnterToDo(boxToDo.value)" placeholder="Add Task">
     </ul>
-    <footer>Add a card...</footer>
   </div>
-  <div class="list">
+  <div class="list" droppable (onDrop)="onItemDropDoing($event)">
     <header>DOING</header>
     <ul>
-      <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
-      <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lobortis enim sit amet</li>
-      <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lobortis enim sit amet metus laoreet, ut condimentum</li>
-      <li>Lorem ipsum dolor sit amet</li>
-      <li>Lorem ipsum dolor sit amet</li>
-      <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lobortis enim sit amet</li>
-      <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lobortis enim sit amet metus laoreet, ut condimentum</li>
-      <li>Lorem ipsum dolor sit amet</li>
-      <li>Lorem ipsum dolor sit amet</li>
-      <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lobortis enim sit amet</li>
-      <li>Lorem ipsum dolor sit amet</li>
+      <li draggable *ngFor="let item of doingitems" [dragData]="item" class="list-group-item">{{item.title}}</li>
+      <input #boxDoing (keyup.enter)="onEnterDoing(boxDoing.value)" placeholder="Add Task">
     </ul>
-    <footer>Add a card...</footer>
+    
   </div>
-  <div class="list">
+  <div class="list" droppable (onDrop)="onItemDropDone($event)">
     <header>DONE</header>
     <ul>
-      <li>Just some text</li>
-      <li>Just some text</li>
+      <li draggable *ngFor="let item of doneitems" [dragData]="item" class="list-group-item">{{item.title}}</li>
+      <input #boxDone (keyup.enter)="onEnterDone(boxDone.value)" placeholder="Add Task">
     </ul>
-    <footer>Add a card...</footer>
-  </div> -->
+    
+  </div>
 </div>
 
-<div class="box" appDraggable (dragStart)="onDragStart()" (dragMove)="onDragMove()" (dragEnd)="onDragEnd()"> My Box</div>
-<div class="box" appDraggable (dragStart)="onDragStart()" (dragMove)="onDragMove()" (dragEnd)="onDragEnd()"> My Box</div>
 
-
-<h2>Part 2 - movable directive</h2>
-
-<div class="box" appMovable>
-  Movable 1
-</div>
-
-<div class="box" appMovable [appMovableReset]="false">
-  Movable 2
-</div>

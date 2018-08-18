@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
+import { ListsService } from './lists.service';
 
 @Component({
   selector: 'app-lists',
@@ -7,21 +8,100 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListsComponent implements OnInit {
 
-  constructor() { }
+  @ViewChild("boxToDo", {read: ElementRef}) boxToDo: ElementRef;
+  @ViewChild("boxDoing", {read: ElementRef}) boxDoing: ElementRef;
+  @ViewChild("boxDone", {read: ElementRef}) boxDone: ElementRef;
+  
+  toDoitems = [
+    {
+      title: 'Teste 1',
+      target: 'todo'
+    }
+  ];
+  doingitems = [];
+  doneitems = [];
+
+  constructor(private listsService: ListsService) { }
 
   ngOnInit() {
   }
 
-  onDragStart(): void {
-    console.log('start');
+  onItemDropToDo(e: any) {
+    let _dragData = e.dragData;
+    if(e.dragData.target == 'done'){
+      this.doneitems = this.listsService.transformList(this.doneitems, _dragData);
+    }
+
+    if(e.dragData.target == 'doing'){
+      this.doingitems = this.listsService.transformList(this.doingitems, _dragData);
+    }
+
+    _dragData.target = 'todo';
+
+    this.toDoitems.push(_dragData);
   }
 
-  onDragMove(): void {
-    console.log('move');
+  onItemDropDoing(e: any) {
+    let _dragData = e.dragData;
+    if(e.dragData.target == 'todo'){
+      this.toDoitems = this.listsService.transformList(this.toDoitems, _dragData);
+    }
+
+    if(e.dragData.target == 'done'){
+      this.doneitems = this.listsService.transformList(this.doneitems, _dragData);
+    }
+
+    _dragData.target = 'doing';
+
+    this.doingitems.push(_dragData);
   }
 
-  onDragEnd(): void {
-    console.log('end');
+  onItemDropDone(e: any) {
+    let _dragData = e.dragData;
+    if(e.dragData.target == 'todo'){
+      this.toDoitems = this.listsService.transformList(this.toDoitems, _dragData);
+    }
+
+    if(e.dragData.target == 'doing'){
+      this.doingitems = this.listsService.transformList(this.doingitems, _dragData);
+    }
+
+    _dragData.target = 'done';
+
+    this.doneitems.push(_dragData);
+  }
+
+  onEnterToDo(text) {
+    const _data = {
+      title: text,
+      target: 'todo'
+    };
+
+    this.toDoitems.push(_data);
+
+    this.boxToDo.nativeElement.value = null;
+  }
+
+  onEnterDoing(text) {
+    const _data = {
+      title: text,
+      target: 'doing'
+    };
+
+    this.doingitems.push(_data);
+
+    this.boxDoing.nativeElement.value = null;
+  }
+
+  onEnterDone(text) {
+    const _data = {
+      title: text,
+      target: 'done'
+    };
+
+    this.doneitems.push(_data);
+
+    this.boxDone.nativeElement.value = null;
   }
 
 }
